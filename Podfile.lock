@@ -1,0 +1,18 @@
+PODS:
+  - LambdaKit (0.0.3)
+  - PureLayout (3.0.2)
+  - SuperDelegate (0.9.0)
+
+DEPENDENCIES:
+  - LambdaKit (~> 0.0.3)
+  - PureLayout (~> 3.0.2)
+  - SuperDelegate (~> 0.9.0)
+
+SPEC CHECKSUMS:
+  LambdaKit: 87d603283c5915077fc09a8cbba03b4c2a48d2bf
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  SuperDelegate: b70c7afddf8525217d0e074b850b8ea3cc6f8abd
+
+PODFILE CHECKSUM: 9c4b800069087bc751a3be710ed0604dc7fd840c
+
+COCOAPODS: 1.2.0

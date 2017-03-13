@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A517CD811E77555600F67CC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517CD801E77555600F67CC0 /* AppDelegate.swift */; };
+		A517CD831E77555600F67CC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517CD821E77555600F67CC0 /* ViewController.swift */; };
+		A517CD881E77555600F67CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A517CD871E77555600F67CC0 /* Assets.xcassets */; };
+		A517CD8B1E77555600F67CC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */; };
+		DBFB395BD78A6DE9EEBC9069 /* Pods_MarchThirteen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C81374F6A4B9C409EB7E531 /* Pods_MarchThirteen.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		28997B1D764EEC218D7A1857 /* Pods-MarchThirteen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarchThirteen.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MarchThirteen/Pods-MarchThirteen.debug.xcconfig"; sourceTree = "<group>"; };
+		8C81FE065521EC7EF892FD53 /* Pods-MarchThirteen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarchThirteen.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MarchThirteen/Pods-MarchThirteen.release.xcconfig"; sourceTree = "<group>"; };
+		9C81374F6A4B9C409EB7E531 /* Pods_MarchThirteen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarchThirteen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A517CD7D1E77555600F67CC0 /* MarchThirteen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarchThirteen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A517CD801E77555600F67CC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A517CD821E77555600F67CC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A517CD871E77555600F67CC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A517CD8A1E77555600F67CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A517CD8C1E77555600F67CC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A517CD7A1E77555600F67CC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBFB395BD78A6DE9EEBC9069 /* Pods_MarchThirteen.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		67EFB15B27D9DF441D71692E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28997B1D764EEC218D7A1857 /* Pods-MarchThirteen.debug.xcconfig */,
+				8C81FE065521EC7EF892FD53 /* Pods-MarchThirteen.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8CE1B4671E21297CCEB772CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C81374F6A4B9C409EB7E531 /* Pods_MarchThirteen.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A517CD741E77555600F67CC0 = {
+			isa = PBXGroup;
+			children = (
+				A517CD7F1E77555600F67CC0 /* MarchThirteen */,
+				A517CD7E1E77555600F67CC0 /* Products */,
+				67EFB15B27D9DF441D71692E /* Pods */,
+				8CE1B4671E21297CCEB772CD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A517CD7E1E77555600F67CC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A517CD7D1E77555600F67CC0 /* MarchThirteen.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A517CD7F1E77555600F67CC0 /* MarchThirteen */ = {
+			isa = PBXGroup;
+			children = (
+				A517CD801E77555600F67CC0 /* AppDelegate.swift */,
+				A517CD821E77555600F67CC0 /* ViewController.swift */,
+				A517CD871E77555600F67CC0 /* Assets.xcassets */,
+				A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */,
+				A517CD8C1E77555600F67CC0 /* Info.plist */,
+			);
+			path = MarchThirteen;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A517CD7C1E77555600F67CC0 /* MarchThirteen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A517CD8F1E77555600F67CC0 /* Build configuration list for PBXNativeTarget "MarchThirteen" */;
+			buildPhases = (
+				D2CB2ABC38B0411185AC341C /* [CP] Check Pods Manifest.lock */,
+				A517CD791E77555600F67CC0 /* Sources */,
+				A517CD7A1E77555600F67CC0 /* Frameworks */,
+				A517CD7B1E77555600F67CC0 /* Resources */,
+				2A98BBA1C8B33651DF36C794 /* [CP] Embed Pods Frameworks */,
+				35F214CE6C748DEBCC9E7DA3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarchThirteen;
+			productName = MarchThirteen;
+			productReference = A517CD7D1E77555600F67CC0 /* MarchThirteen.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A517CD751E77555600F67CC0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = ZweiGraf;
+				TargetAttributes = {
+					A517CD7C1E77555600F67CC0 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A517CD781E77555600F67CC0 /* Build configuration list for PBXProject "MarchThirteen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A517CD741E77555600F67CC0;
+			productRefGroup = A517CD7E1E77555600F67CC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A517CD7C1E77555600F67CC0 /* MarchThirteen */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A517CD7B1E77555600F67CC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A517CD8B1E77555600F67CC0 /* LaunchScreen.storyboard in Resources */,
+				A517CD881E77555600F67CC0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A98BBA1C8B33651DF36C794 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MarchThirteen/Pods-MarchThirteen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35F214CE6C748DEBCC9E7DA3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MarchThirteen/Pods-MarchThirteen-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2CB2ABC38B0411185AC341C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A517CD791E77555600F67CC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A517CD831E77555600F67CC0 /* ViewController.swift in Sources */,
+				A517CD811E77555600F67CC0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A517CD8A1E77555600F67CC0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A517CD8D1E77555600F67CC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A517CD8E1E77555600F67CC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A517CD901E77555600F67CC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28997B1D764EEC218D7A1857 /* Pods-MarchThirteen.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = MarchThirteen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zweigraf.MarchThirteen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A517CD911E77555600F67CC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C81FE065521EC7EF892FD53 /* Pods-MarchThirteen.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = MarchThirteen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zweigraf.MarchThirteen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A517CD781E77555600F67CC0 /* Build configuration list for PBXProject "MarchThirteen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A517CD8D1E77555600F67CC0 /* Debug */,
+				A517CD8E1E77555600F67CC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A517CD8F1E77555600F67CC0 /* Build configuration list for PBXNativeTarget "MarchThirteen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A517CD901E77555600F67CC0 /* Debug */,
+				A517CD911E77555600F67CC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A517CD751E77555600F67CC0 /* Project object */;
+}
