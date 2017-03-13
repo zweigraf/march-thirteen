@@ -19,8 +19,7 @@ target 'MarchThirteen' do
 
   # Fresh look at work with gestures in Swift.
   # https://github.com/igormatyushkin014/Sensitive
-  # Uncomment to use
-  # pod 'Sensitive', '~> 3.0'
+  pod 'Sensitive', '~> 3.0'
 
   # Modern Swift API for NSUserDefaults
   # https://github.com/radex/SwiftyUserDefaults

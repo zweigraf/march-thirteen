@@ -11,6 +11,7 @@
 		A517CD831E77555600F67CC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517CD821E77555600F67CC0 /* ViewController.swift */; };
 		A517CD881E77555600F67CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A517CD871E77555600F67CC0 /* Assets.xcassets */; };
 		A517CD8B1E77555600F67CC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */; };
+		A5566A981E7764EB00788E79 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5566A971E7764EB00788E79 /* ServiceManager.swift */; };
 		DBFB395BD78A6DE9EEBC9069 /* Pods_MarchThirteen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C81374F6A4B9C409EB7E531 /* Pods_MarchThirteen.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		A517CD871E77555600F67CC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A517CD8A1E77555600F67CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A517CD8C1E77555600F67CC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5566A971E7764EB00788E79 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				A517CD871E77555600F67CC0 /* Assets.xcassets */,
 				A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */,
 				A517CD8C1E77555600F67CC0 /* Info.plist */,
+				A5566A971E7764EB00788E79 /* ServiceManager.swift */,
 			);
 			path = MarchThirteen;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			files = (
 				A517CD831E77555600F67CC0 /* ViewController.swift in Sources */,
 				A517CD811E77555600F67CC0 /* AppDelegate.swift in Sources */,
+				A5566A981E7764EB00788E79 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

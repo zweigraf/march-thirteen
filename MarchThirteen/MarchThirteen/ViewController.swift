@@ -7,19 +7,41 @@
 //
 
 import UIKit
+import PureLayout
+import Sensitive
 
 class ViewController: UIViewController {
 
+    let serviceManager = ServiceManager()
+    let counterlabel = UILabel()
+    
+    override func loadView() {
+        let newView = UIView()
+        newView.backgroundColor = .green
+        
+        newView.addSubview(counterlabel)
+        counterlabel.autoCenterInSuperview()
+        counterlabel.text = String(0)
+        view = newView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        counterlabel.onTap { [weak self] _ in
+            let text = self!.counterlabel.text!
+            let number = Int(text)! + 1
+            self?.serviceManager.send(counter: number)
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+}
+
+// MARK: - ServiceManagerDelegate
+extension ViewController: ServiceManagerDelegate {
+    func receivedCounter(_ counter: Int) {
+        counterlabel.text = "\(counter)"
     }
-
-
 }
 
