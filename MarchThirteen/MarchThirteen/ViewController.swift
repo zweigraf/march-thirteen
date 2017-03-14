@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         
         newView.addSubview(counterlabel)
         counterlabel.autoCenterInSuperview()
+        counterlabel.isUserInteractionEnabled = true
         counterlabel.text = String(0)
         view = newView
     }
@@ -31,8 +32,10 @@ class ViewController: UIViewController {
         counterlabel.onTap { [weak self] _ in
             let text = self!.counterlabel.text!
             let number = Int(text)! + 1
+            self?.counterlabel.text = "\(number)"
             self?.serviceManager.send(counter: number)
         }
+        serviceManager.delegate = self
     }
 
 
@@ -41,7 +44,9 @@ class ViewController: UIViewController {
 // MARK: - ServiceManagerDelegate
 extension ViewController: ServiceManagerDelegate {
     func receivedCounter(_ counter: Int) {
-        counterlabel.text = "\(counter)"
+        DispatchQueue.main.async {
+            self.counterlabel.text = "\(counter)"
+        }
     }
 }
 
