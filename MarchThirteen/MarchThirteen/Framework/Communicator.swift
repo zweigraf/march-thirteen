@@ -14,12 +14,11 @@ import MultipeerConnectivity
 fileprivate let ownPeerID = MCPeerID(displayName: UIDevice.current.name)
 
 // MARK: - Type Def
-public class Communicator<PayloadType: CommunicatorMappable> {
-    // MARK: Type Aliases
-    typealias Message = CommunicatorMessage<PayloadType>
-    typealias MessageReceivedCallback = (Message) -> Void
-    typealias MessageSentCallback = (Message) -> Void
-    typealias PeersChangedCallback = ([Peer]) -> Void
+public class Communicator<OutputType: CommunicatorOutput> {
+    // MARK: Public Properties
+    var messageReceived: MessageReceivedCallback?
+    var messageSent: MessageSentCallback?
+    var peersChanged: PeersChangedCallback?
     
     init(identifier: String) {
         service = Service(with: identifier, as: ownPeerID)
@@ -29,6 +28,14 @@ public class Communicator<PayloadType: CommunicatorMappable> {
         
         service.start()
     }
+    
+    // MARK: Type Aliases
+    fileprivate typealias PayloadType = OutputType.PayloadType
+    typealias Message = CommunicatorMessage<OutputType.PayloadType>
+    typealias Output = OutputType
+    typealias MessageReceivedCallback = (OutputType) -> Void
+    typealias MessageSentCallback = (OutputType) -> Void
+    typealias PeersChangedCallback = ([Peer]) -> Void
     
     // MARK: Private Properties
     fileprivate let service: Service
@@ -41,7 +48,8 @@ public extension Communicator {
         let data = message.dataRepresentation
         do {
             try service.send(data: data)
-            // FIXME: call message sent callback
+            let output = OutputType(from: message)
+            messageSent?(output)
         } catch {}
     }
 }
@@ -52,11 +60,12 @@ fileprivate extension Communicator {
         guard let message = Message(from: data, peer: Peer(peerID: peer)) else {
             return
         }
-        // FIXME: call message received callback
+        let output = OutputType(from: message)
+        messageReceived?(output)
     }
     
     func peersChanged(peers: [MCPeerID]) {
         let peers = peers.map { Peer(peerID: $0) }
-        // FIXME: call peers changed callback
+        peersChanged?(peers)
     }
 }

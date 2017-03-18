@@ -1,5 +1,5 @@
 //
-//  CommunicatorMappable.swift
+//  CommunicatorPayload.swift
 //  MarchThirteen
 //
 //  Created by Luis Reisewitz on 18.03.17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol CommunicatorMappable {
+public protocol CommunicatorPayload {
     /// Initializes a new object from the given dictionary. Should return nil
     /// if the dictionary cannot be decoded.
     ///

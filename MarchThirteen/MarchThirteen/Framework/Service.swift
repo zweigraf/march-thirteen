@@ -10,7 +10,7 @@ import Foundation
 import MultipeerConnectivity
 
 internal class Service: NSObject {
-    // MARK: Public Shit
+    // MARK: 🔓 Public Properties 🔓
     
     typealias PeersChangedCallback = (_ peers: [MCPeerID]) -> Void
     typealias DataReceivedCallback = (_ data: Data, _ peer: MCPeerID) -> Void
@@ -29,7 +29,20 @@ internal class Service: NSObject {
     /// the connected peers.
     var dataReceived: DataReceivedCallback?
     
-    // MARK: Private MC Session Stuff
+    /// Initializes the service manager with a given service type and peerID.
+    ///
+    /// - Parameters:
+    ///   - type: A MultiPeer service type. Service type must be a unique
+    ///     string, at most 15 characters long and can contain only ASCII lowercase
+    ///     letters, numbers and hyphens.
+    ///   - peerID: The user's own peer id to be shown to others.
+    init(with type: String, as peerID: MCPeerID) {
+        self.type = type
+        self.ownPeer = peerID
+        super.init()
+    }
+    
+    // MARK: 🔒 Private Properties 🔒
 
     /// The type that is used for advertising and browsing the service.
     fileprivate let type: String
@@ -58,19 +71,6 @@ internal class Service: NSObject {
         return browser
     }()
     
-    /// Initializes the service manager with a given service type and peerID.
-    ///
-    /// - Parameters:
-    ///   - type: A MultiPeer service type. Service type must be a unique
-    ///     string, at most 15 characters long and can contain only ASCII lowercase 
-    ///     letters, numbers and hyphens.
-    ///   - peerID: The user's own peer id to be shown to others.
-    init(with type: String, as peerID: MCPeerID) {
-        self.type = type
-        self.ownPeer = peerID
-        super.init()
-    }
-    
     deinit {
         // Stop MultiPeer Stuff
         stop()
@@ -78,7 +78,7 @@ internal class Service: NSObject {
     
 }
 
-// MARK: - Public API
+// MARK: - 🔓 Public API 🔓
 extension Service {
     /// Starts advertising & browsing for our service.
     func start() {
@@ -102,7 +102,7 @@ extension Service {
     }
 }
 
-// MARK: - Private Delegate Processing
+// MARK: - 🔒 Private Delegate Processing 🔒
 fileprivate extension Service {
     func notifyReceive(data: Data, from peer: MCPeerID) {
         dataReceived?(data, peer)

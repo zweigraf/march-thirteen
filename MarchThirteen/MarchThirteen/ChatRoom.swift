@@ -8,19 +8,41 @@
 
 import Foundation
 
-fileprivate struct Payload {
-    let message: String
+
+struct Payload {
+    let text: String
 }
 
-extension Payload: CommunicatorMappable {
+extension Payload: CommunicatorPayload {
     init?(from dictionary: [String : Any]) {
-        self.init(message: "")
+        guard let text = dictionary["text"] as? String else {
+            return nil
+        }
+        self.init(text: text)
     }
-    fileprivate var dictionaryRepresentation: [String : Any] {
-        return [:]
+    var dictionaryRepresentation: [String : Any] {
+        return ["text": text]
+    }
+}
+
+struct ChatMessage {
+    let text: String
+    let username: String
+}
+
+extension ChatMessage: CommunicatorOutput {
+    typealias PayloadType = Payload
+    
+    init(from message: CommunicatorMessage<PayloadType>) {
+        self.init(text: message.payload.text, username: message.peer.name)
     }
 }
 
 class ChatRoom {
-    fileprivate let communicator = Communicator<Payload>(identifier: "marchthirteen")
+    fileprivate let communicator = Communicator<ChatMessage>(identifier: "marchthirteen")
+    
+    func send(message: String) {
+        let payload = Payload(text: message)
+        communicator.send(message: payload)
+    }
 }

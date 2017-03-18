@@ -14,7 +14,7 @@ fileprivate enum DictionaryKeys: String {
 }
 
 /// Represents a message.
-public struct CommunicatorMessage<PayloadType: CommunicatorMappable> {
+public struct CommunicatorMessage<PayloadType: CommunicatorPayload> {
     /// The payload of the message as sent by the other party.
     let payload: PayloadType
     /// The peer that sent this message.
@@ -23,9 +23,9 @@ public struct CommunicatorMessage<PayloadType: CommunicatorMappable> {
     // TODO: add timestamps & figure out way to synchronise devices times
 }
 
-// MARK: - Data In/Out
+// MARK: - ↔️ Data In/Out ↔️
 internal extension CommunicatorMessage {
-    fileprivate init?(from dictionary: [String : Any], peer: Peer) {
+    private init?(from dictionary: [String : Any], peer: Peer) {
         guard let payloadDict = dictionary[DictionaryKeys.payload.rawValue] as? [String: Any],
             let payload = PayloadType(from: payloadDict) else {
                 return nil
@@ -33,7 +33,9 @@ internal extension CommunicatorMessage {
         self.init(payload: payload, peer: peer)
     }
     
-    fileprivate var dictionaryRepresentation: [String : Any] {
+    private var dictionaryRepresentation: [String : Any] {
+        // Wrap payload in dictionary to later attach metadata for ourselves
+        // Do not serialise the peer, that will not be transferred.
         let dictionary: [String: Any] = [
             DictionaryKeys.payload.rawValue: payload.dictionaryRepresentation
         ]
@@ -48,7 +50,6 @@ internal extension CommunicatorMessage {
     }
     
     var dataRepresentation: Data {
-        // Wrap payload in dictionary to later attach metadata for ourselves
         let dictionary = dictionaryRepresentation
         let data = NSKeyedArchiver.archivedData(withRootObject: dictionary)
         return data
