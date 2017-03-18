@@ -31,22 +31,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        viewModel.peers.asObservable()
-//            .map { $0.map { $0.displayName }.joined(separator: "\n") }
-//            .bindTo(counterlabel.rx.text)
-//            .addDisposableTo(disposeBag)
-        
         adapter.collectionView = ui.collectionView
     }
     
-    // MARK: Configuration
-    let viewModel = ChatRoomViewModel()
     
 }
 
 extension ViewController: IGListAdapterDataSource {
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        return viewModel.messages.value
+        return []
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {

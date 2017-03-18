@@ -11,7 +11,6 @@
 		A517CD831E77555600F67CC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517CD821E77555600F67CC0 /* ViewController.swift */; };
 		A517CD881E77555600F67CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A517CD871E77555600F67CC0 /* Assets.xcassets */; };
 		A517CD8B1E77555600F67CC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */; };
-		A52EFE421E7B54230032115F /* ChatRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EFE411E7B54230032115F /* ChatRoomViewModel.swift */; };
 		A5566A981E7764EB00788E79 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5566A971E7764EB00788E79 /* ServiceManager.swift */; };
 		DBFB395BD78A6DE9EEBC9069 /* Pods_MarchThirteen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C81374F6A4B9C409EB7E531 /* Pods_MarchThirteen.framework */; };
 /* End PBXBuildFile section */
@@ -26,7 +25,6 @@
 		A517CD871E77555600F67CC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A517CD8A1E77555600F67CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A517CD8C1E77555600F67CC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A52EFE411E7B54230032115F /* ChatRoomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewModel.swift; sourceTree = "<group>"; };
 		A5566A971E7764EB00788E79 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +84,6 @@
 				A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */,
 				A517CD8C1E77555600F67CC0 /* Info.plist */,
 				A5566A971E7764EB00788E79 /* ServiceManager.swift */,
-				A52EFE411E7B54230032115F /* ChatRoomViewModel.swift */,
 			);
 			path = MarchThirteen;
 			sourceTree = "<group>";
@@ -216,7 +213,6 @@
 				A517CD831E77555600F67CC0 /* ViewController.swift in Sources */,
 				A517CD811E77555600F67CC0 /* AppDelegate.swift in Sources */,
 				A5566A981E7764EB00788E79 /* ServiceManager.swift in Sources */,
-				A52EFE421E7B54230032115F /* ChatRoomViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

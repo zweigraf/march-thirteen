@@ -12,9 +12,11 @@ import SuperDelegate
 @UIApplicationMain
 class AppDelegate: SuperDelegate, ApplicationLaunched {
     var window: UIWindow?
+    
     func setupApplication() {
         
     }
+    
     func loadInterface(launchItem: LaunchItem) {
         let window = UIWindow()
         window.rootViewController = ViewController()
