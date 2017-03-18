@@ -10,5 +10,6 @@ import Foundation
 
 public protocol CommunicatorOutput {
     associatedtype PayloadType: CommunicatorPayload
+    
     init(from: CommunicatorMessage<PayloadType>)
 }

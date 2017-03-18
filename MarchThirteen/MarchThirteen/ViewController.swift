@@ -9,8 +9,6 @@
 import UIKit
 import PureLayout
 import Sensitive
-import RxSwift
-import RxCocoa
 import IGListKit
 
 class ViewController: UIViewController {
@@ -45,7 +43,7 @@ extension ViewController: IGListAdapterDataSource {
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
         // FIXME: labelclass
         return IGListSingleSectionController(cellClass: UICollectionViewCell.self, configureBlock: { (object, cell) in
-            return cell
+            
         }, sizeBlock: { (object, context) -> CGSize in
             guard let context = context else {
                 return .zero

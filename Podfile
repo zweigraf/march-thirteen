@@ -24,11 +24,6 @@ target 'MarchThirteen' do
   # A data-driven UICollectionView framework for building fast and flexible lists. https://instagram.github.io/IGListKit/
   # https://github.com/Instagram/IGListKit
   pod 'IGListKit', '~> 2.0.0'
-  
-  # Reactive Programming in Swift
-  # https://github.com/ReactiveX/RxSwift
-  pod 'RxSwift',    '~> 3.0'
-  pod 'RxCocoa',    '~> 3.0'
 
   # Modern Swift API for NSUserDefaults
   # https://github.com/radex/SwiftyUserDefaults
