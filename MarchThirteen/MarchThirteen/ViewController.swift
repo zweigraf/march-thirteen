@@ -9,44 +9,86 @@
 import UIKit
 import PureLayout
 import Sensitive
+import RxSwift
+import RxCocoa
+import IGListKit
 
 class ViewController: UIViewController {
-
-    let serviceManager = ServiceManager()
-    let counterlabel = UILabel()
+    // MARK: Boilerplate
+    let ui = ViewControllerUI()
+    let disposeBag = DisposeBag()
+    lazy var adapter: IGListAdapter = {
+        let adapter = IGListAdapter(updater: IGListAdapterUpdater(), viewController:self, workingRangeSize: 0)
+        adapter.dataSource = self
+        return adapter
+    }()
     
     override func loadView() {
-        let newView = UIView()
-        newView.backgroundColor = .green
-        
-        newView.addSubview(counterlabel)
-        counterlabel.autoCenterInSuperview()
-        counterlabel.isUserInteractionEnabled = true
-        counterlabel.text = String(0)
-        view = newView
+        view = ui.view
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        counterlabel.onTap { [weak self] _ in
-            let text = self!.counterlabel.text!
-            let number = Int(text)! + 1
-            self?.counterlabel.text = "\(number)"
-            self?.serviceManager.send(counter: number)
-        }
-        serviceManager.delegate = self
+//        viewModel.peers.asObservable()
+//            .map { $0.map { $0.displayName }.joined(separator: "\n") }
+//            .bindTo(counterlabel.rx.text)
+//            .addDisposableTo(disposeBag)
+        
+        adapter.collectionView = ui.collectionView
     }
-
-
+    
+    // MARK: Configuration
+    let viewModel = ChatRoomViewModel()
+    
 }
 
-// MARK: - ServiceManagerDelegate
-extension ViewController: ServiceManagerDelegate {
-    func receivedCounter(_ counter: Int) {
-        DispatchQueue.main.async {
-            self.counterlabel.text = "\(counter)"
-        }
+extension ViewController: IGListAdapterDataSource {
+    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
+        return viewModel.messages.value
+    }
+    
+    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
+        // FIXME: labelclass
+        return IGListSingleSectionController(cellClass: UICollectionViewCell.self, configureBlock: { (object, cell) in
+            return cell
+        }, sizeBlock: { (object, context) -> CGSize in
+            guard let context = context else {
+                return .zero
+            }
+            // FIXME: dynamic height
+            return CGSize(width: context.containerSize.width, height: 55)
+        })
+    }
+    
+    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
+        return nil
     }
 }
 
+class ViewControllerUI {
+    lazy var view: UIView = {
+        let newView = UIView()
+        newView.backgroundColor = .green
+        
+        newView.addSubview(self.peersLabel)
+        self.peersLabel.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        
+        newView.addSubview(self.collectionView)
+        self.collectionView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
+        self.collectionView.autoPinEdge(.top, to: .bottom, of: self.peersLabel)
+        
+        return newView
+    }()
+    
+    let peersLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let collectionView: IGListCollectionView = {
+        return IGListCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    }()
+}
