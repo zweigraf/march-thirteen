@@ -11,7 +11,12 @@
 		A517CD831E77555600F67CC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517CD821E77555600F67CC0 /* ViewController.swift */; };
 		A517CD881E77555600F67CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A517CD871E77555600F67CC0 /* Assets.xcassets */; };
 		A517CD8B1E77555600F67CC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */; };
-		A5566A981E7764EB00788E79 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5566A971E7764EB00788E79 /* ServiceManager.swift */; };
+		A5BD327E1E7D9B310071E63F /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD327D1E7D9B310071E63F /* ChatRoom.swift */; };
+		A5BD32891E7D9DB50071E63F /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD32871E7D9DB50071E63F /* Communicator.swift */; };
+		A5BD328A1E7D9DB50071E63F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD32881E7D9DB50071E63F /* Service.swift */; };
+		A5BD328C1E7D9E490071E63F /* CommunicatorMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD328B1E7D9E490071E63F /* CommunicatorMappable.swift */; };
+		A5BD328E1E7D9F760071E63F /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD328D1E7D9F760071E63F /* Peer.swift */; };
+		A5BD32901E7D9FB20071E63F /* CommunicatorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD328F1E7D9FB20071E63F /* CommunicatorMessage.swift */; };
 		DBFB395BD78A6DE9EEBC9069 /* Pods_MarchThirteen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C81374F6A4B9C409EB7E531 /* Pods_MarchThirteen.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +30,12 @@
 		A517CD871E77555600F67CC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A517CD8A1E77555600F67CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A517CD8C1E77555600F67CC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5566A971E7764EB00788E79 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		A5BD327D1E7D9B310071E63F /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		A5BD32871E7D9DB50071E63F /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
+		A5BD32881E7D9DB50071E63F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		A5BD328B1E7D9E490071E63F /* CommunicatorMappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicatorMappable.swift; sourceTree = "<group>"; };
+		A5BD328D1E7D9F760071E63F /* Peer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
+		A5BD328F1E7D9FB20071E63F /* CommunicatorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicatorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,14 +88,27 @@
 		A517CD7F1E77555600F67CC0 /* MarchThirteen */ = {
 			isa = PBXGroup;
 			children = (
+				A5BD32861E7D9DB50071E63F /* Framework */,
 				A517CD801E77555600F67CC0 /* AppDelegate.swift */,
 				A517CD821E77555600F67CC0 /* ViewController.swift */,
 				A517CD871E77555600F67CC0 /* Assets.xcassets */,
 				A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */,
 				A517CD8C1E77555600F67CC0 /* Info.plist */,
-				A5566A971E7764EB00788E79 /* ServiceManager.swift */,
+				A5BD327D1E7D9B310071E63F /* ChatRoom.swift */,
 			);
 			path = MarchThirteen;
+			sourceTree = "<group>";
+		};
+		A5BD32861E7D9DB50071E63F /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				A5BD32871E7D9DB50071E63F /* Communicator.swift */,
+				A5BD32881E7D9DB50071E63F /* Service.swift */,
+				A5BD328B1E7D9E490071E63F /* CommunicatorMappable.swift */,
+				A5BD328D1E7D9F760071E63F /* Peer.swift */,
+				A5BD328F1E7D9FB20071E63F /* CommunicatorMessage.swift */,
+			);
+			path = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +233,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BD328C1E7D9E490071E63F /* CommunicatorMappable.swift in Sources */,
 				A517CD831E77555600F67CC0 /* ViewController.swift in Sources */,
+				A5BD32901E7D9FB20071E63F /* CommunicatorMessage.swift in Sources */,
 				A517CD811E77555600F67CC0 /* AppDelegate.swift in Sources */,
-				A5566A981E7764EB00788E79 /* ServiceManager.swift in Sources */,
+				A5BD328A1E7D9DB50071E63F /* Service.swift in Sources */,
+				A5BD32891E7D9DB50071E63F /* Communicator.swift in Sources */,
+				A5BD327E1E7D9B310071E63F /* ChatRoom.swift in Sources */,
+				A5BD328E1E7D9F760071E63F /* Peer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

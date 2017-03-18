@@ -1,5 +1,5 @@
 //
-//  ServiceManager.swift
+//  Service.swift
 //  MarchThirteen
 //
 //  Created by Luis Reisewitz on 14.03.17.
@@ -9,7 +9,7 @@
 import Foundation
 import MultipeerConnectivity
 
-class ServiceManager: NSObject {
+internal class Service: NSObject {
     // MARK: Public Shit
     
     typealias PeersChangedCallback = (_ peers: [MCPeerID]) -> Void
@@ -31,8 +31,8 @@ class ServiceManager: NSObject {
     
     // MARK: Private MC Session Stuff
 
-    /// The service type that is used for advertising and browsing.
-    fileprivate let serviceType: String
+    /// The type that is used for advertising and browsing the service.
+    fileprivate let type: String
     
     /// Session used for communicating with peers.
     fileprivate lazy var session: MCSession = {
@@ -45,7 +45,7 @@ class ServiceManager: NSObject {
     /// Advertises our peer to others.
     fileprivate lazy var serviceAdvertiser: MCNearbyServiceAdvertiser = {
         let advertiser = MCNearbyServiceAdvertiser(
-            peer: self.ownPeer, discoveryInfo: nil, serviceType: self.serviceType)
+            peer: self.ownPeer, discoveryInfo: nil, serviceType: self.type)
         advertiser.delegate = self
         return advertiser
     }()
@@ -53,7 +53,7 @@ class ServiceManager: NSObject {
     /// Browses for other peers.
     fileprivate lazy var serviceBrowser: MCNearbyServiceBrowser = {
         let browser = MCNearbyServiceBrowser(
-            peer: self.ownPeer, serviceType: self.serviceType)
+            peer: self.ownPeer, serviceType: self.type)
         browser.delegate = self
         return browser
     }()
@@ -61,33 +61,33 @@ class ServiceManager: NSObject {
     /// Initializes the service manager with a given service type and peerID.
     ///
     /// - Parameters:
-    ///   - serviceType: A MultiPeer service type. Service type must be a unique 
+    ///   - type: A MultiPeer service type. Service type must be a unique
     ///     string, at most 15 characters long and can contain only ASCII lowercase 
     ///     letters, numbers and hyphens.
     ///   - peerID: The user's own peer id to be shown to others.
-    init(for serviceType: String, as peerID: MCPeerID) {
-        self.serviceType = serviceType
+    init(with type: String, as peerID: MCPeerID) {
+        self.type = type
         self.ownPeer = peerID
         super.init()
     }
     
     deinit {
         // Stop MultiPeer Stuff
-        stopService()
+        stop()
     }
     
 }
 
 // MARK: - Public API
-extension ServiceManager {
+extension Service {
     /// Starts advertising & browsing for our service.
-    func startService() {
+    func start() {
         serviceAdvertiser.startAdvertisingPeer()
         serviceBrowser.startBrowsingForPeers()
     }
     
     /// Stops advertising & browsing for our service.
-    func stopService() {
+    func stop() {
         serviceAdvertiser.stopAdvertisingPeer()
         serviceBrowser.stopBrowsingForPeers()
     }
@@ -95,19 +95,15 @@ extension ServiceManager {
     /// Tries to send given data to all connected peers.
     ///
     /// - Parameter data: data to be sent to peers.
-    func send(data: Data) {
+    func send(data: Data) throws {
         guard session.connectedPeers.count > 0 else { return }
-        do {
-            try session.send(
-                data, toPeers: session.connectedPeers, with: .reliable)
-        } catch {
-            print("Sending of data failed with error \(error)")
-        }
+        try session.send(
+            data, toPeers: session.connectedPeers, with: .reliable)
     }
 }
 
 // MARK: - Private Delegate Processing
-fileprivate extension ServiceManager {
+fileprivate extension Service {
     func notifyReceive(data: Data, from peer: MCPeerID) {
         dataReceived?(data, peer)
     }
@@ -118,7 +114,7 @@ fileprivate extension ServiceManager {
 }
 
 // MARK: - MCNearbyServiceAdvertiserDelegate
-extension ServiceManager: MCNearbyServiceAdvertiserDelegate {
+extension Service: MCNearbyServiceAdvertiserDelegate {
     func advertiser(
         _ advertiser: MCNearbyServiceAdvertiser,
         didReceiveInvitationFromPeer peerID: MCPeerID,
@@ -137,7 +133,7 @@ extension ServiceManager: MCNearbyServiceAdvertiserDelegate {
 }
 
 // MARK: - MCNearbyServiceBrowserDelegate
-extension ServiceManager: MCNearbyServiceBrowserDelegate {
+extension Service: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         // Automatically invite all peers we find
         browser.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
@@ -154,7 +150,7 @@ extension ServiceManager: MCNearbyServiceBrowserDelegate {
 }
 
 // MARK: - MCSessionDelegate
-extension ServiceManager: MCSessionDelegate {
+extension Service: MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         notifyPeersChanged(peers: connectedPeers)
     }
