@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Payload {
     let text: String
 }
@@ -25,24 +24,44 @@ extension Payload: CommunicatorPayload {
     }
 }
 
-struct ChatMessage {
+class ChatMessage: NSObject, CommunicatorOutput {
     let text: String
     let username: String
-}
+    
+    init(text: String, username: String) {
+        self.text = text
+        self.username = username
+        super.init()
+    }
 
-extension ChatMessage: CommunicatorOutput {
     typealias PayloadType = Payload
     
-    init(from message: CommunicatorMessage<PayloadType>) {
-        self.init(text: message.payload.text, username: message.peer.name)
+    required init(from message: CommunicatorMessage<PayloadType>) {
+        text = message.payload.text
+        username = message.peer.name
+        super.init()
     }
 }
 
 class ChatRoom {
     fileprivate let communicator = Communicator<ChatMessage>(identifier: "marchthirteen")
     
+    var messages = [ChatMessage]()
+    var messagesChanged: (() -> Void)?
+    
+    init() {
+        communicator.messageReceived = receive
+        communicator.messageSent = receive
+//        communicator.peersChanged
+    }
+    
     func send(message: String) {
         let payload = Payload(text: message)
         communicator.send(message: payload)
+    }
+    
+    func receive(message: ChatMessage) {
+        messages.append(message)
+        messagesChanged?()
     }
 }

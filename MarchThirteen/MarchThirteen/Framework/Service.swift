@@ -9,6 +9,10 @@
 import Foundation
 import MultipeerConnectivity
 
+enum ServiceError: Error {
+    case noConnectedPeers
+}
+
 internal class Service: NSObject {
     // MARK: 🔓 Public Properties 🔓
     
@@ -96,7 +100,9 @@ extension Service {
     ///
     /// - Parameter data: data to be sent to peers.
     func send(data: Data) throws {
-        guard session.connectedPeers.count > 0 else { return }
+        guard session.connectedPeers.count > 0 else {
+            throw ServiceError.noConnectedPeers
+        }
         try session.send(
             data, toPeers: session.connectedPeers, with: .reliable)
     }
