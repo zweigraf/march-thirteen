@@ -20,17 +20,11 @@ class ViewController: JSQMessagesViewController {
         super.viewDidLoad()
         
         automaticallyScrollsToMostRecentMessage = true
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(sendRunTime), userInfo: nil, repeats: true)
-        
         chatRoom.messagesChanged = messagesChanged
     }
     
     // MARK: Model
     let chatRoom = ChatRoom()
-    
-    func sendRunTime() {
-        chatRoom.send(message: "Runtime: \(mach_absolute_time() - startTime). Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.")
-    }
 }
 
 // MARK: - JSQMessagesViewController Overrides 
@@ -76,8 +70,7 @@ extension ViewController {
 extension ViewController {
     func messagesChanged() {
         DispatchQueue.main.async {
-            self.finishSendingMessage(animated: true)
-
+            self.finishReceivingMessage(animated: true)
         }
     }
 }
