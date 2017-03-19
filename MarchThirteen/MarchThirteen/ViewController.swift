@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     let chatRoom = ChatRoom()
     
     func sendRunTime() {
-        chatRoom.send(message: "Runtime: \(mach_absolute_time() - startTime)")
+        chatRoom.send(message: "Runtime: \(mach_absolute_time() - startTime). Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.")
     }
 }
 
@@ -61,19 +61,7 @@ extension ViewController: IGListAdapterDataSource {
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        // FIXME: labelclass
-        return IGListSingleSectionController(cellClass: MessageCollectionViewCell.self, configureBlock: { (object, cell) in
-            guard let cell = cell as? MessageCollectionViewCell,
-                let message = object as? ChatMessage else { return }
-            cell.ui.nameLabel.text = message.username
-            cell.ui.messageLabel.text = message.text
-        }, sizeBlock: { (object, context) -> CGSize in
-            guard let context = context else {
-                return .zero
-            }
-            // FIXME: dynamic height
-            return CGSize(width: context.containerSize.width, height: 55)
-        })
+        return SelfSizingCellSectionController<MessageCollectionViewCell>()
     }
     
     func emptyView(for listAdapter: IGListAdapter) -> UIView? {
@@ -104,7 +92,9 @@ class ViewControllerUI {
     }()
     
     let collectionView: IGListCollectionView = {
-        let view = IGListCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let layout = UICollectionViewFlowLayout()
+//        layout.estimatedItemSize = CGSize(width: 100, height: 50)
+        let view = IGListCollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .darkGray
         return view
     }()

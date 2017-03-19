@@ -19,7 +19,7 @@
 		A5BD32901E7D9FB20071E63F /* CommunicatorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD328F1E7D9FB20071E63F /* CommunicatorMessage.swift */; };
 		A5BD32921E7DB6EC0071E63F /* CommunicatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD32911E7DB6EC0071E63F /* CommunicatorOutput.swift */; };
 		A5BD32941E7F12100071E63F /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD32931E7F12100071E63F /* MessageCollectionViewCell.swift */; };
-		A5BD32961E7F1C860071E63F /* SelfSizingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD32951E7F1C860071E63F /* SelfSizingCollectionViewCell.swift */; };
+		A5BD32961E7F1C860071E63F /* ConfigurableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD32951E7F1C860071E63F /* ConfigurableCollectionViewCell.swift */; };
 		A5BD32981E7F1EEB0071E63F /* SelfSizingCellSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD32971E7F1EEB0071E63F /* SelfSizingCellSectionController.swift */; };
 		DBFB395BD78A6DE9EEBC9069 /* Pods_MarchThirteen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C81374F6A4B9C409EB7E531 /* Pods_MarchThirteen.framework */; };
 /* End PBXBuildFile section */
@@ -42,7 +42,7 @@
 		A5BD328F1E7D9FB20071E63F /* CommunicatorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicatorMessage.swift; sourceTree = "<group>"; };
 		A5BD32911E7DB6EC0071E63F /* CommunicatorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicatorOutput.swift; sourceTree = "<group>"; };
 		A5BD32931E7F12100071E63F /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
-		A5BD32951E7F1C860071E63F /* SelfSizingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfSizingCollectionViewCell.swift; sourceTree = "<group>"; };
+		A5BD32951E7F1C860071E63F /* ConfigurableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5BD32971E7F1EEB0071E63F /* SelfSizingCellSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfSizingCellSectionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +102,7 @@
 				A517CD871E77555600F67CC0 /* Assets.xcassets */,
 				A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */,
 				A5BD32931E7F12100071E63F /* MessageCollectionViewCell.swift */,
-				A5BD32951E7F1C860071E63F /* SelfSizingCollectionViewCell.swift */,
+				A5BD32951E7F1C860071E63F /* ConfigurableCollectionViewCell.swift */,
 				A517CD8C1E77555600F67CC0 /* Info.plist */,
 				A5BD327D1E7D9B310071E63F /* ChatRoom.swift */,
 				A5BD32971E7F1EEB0071E63F /* SelfSizingCellSectionController.swift */,
@@ -251,7 +251,7 @@
 				A517CD811E77555600F67CC0 /* AppDelegate.swift in Sources */,
 				A5BD328A1E7D9DB50071E63F /* Service.swift in Sources */,
 				A5BD32891E7D9DB50071E63F /* Communicator.swift in Sources */,
-				A5BD32961E7F1C860071E63F /* SelfSizingCollectionViewCell.swift in Sources */,
+				A5BD32961E7F1C860071E63F /* ConfigurableCollectionViewCell.swift in Sources */,
 				A5BD32941E7F12100071E63F /* MessageCollectionViewCell.swift in Sources */,
 				A5BD327E1E7D9B310071E63F /* ChatRoom.swift in Sources */,
 				A5BD328E1E7D9F760071E63F /* Peer.swift in Sources */,

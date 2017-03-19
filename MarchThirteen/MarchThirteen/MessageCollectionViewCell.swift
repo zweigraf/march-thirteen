@@ -17,13 +17,39 @@ class MessageCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(ui.view)
         ui.view.autoPinEdgesToSuperviewEdges()
+        
+//        contentView.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("Not implemented")
     }
+    
+//    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+//        setNeedsLayout()
+//        layoutIfNeeded()
+//        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+//        var newFrame = layoutAttributes.frame
+//        // Note: don't change the width
+//        newFrame.size.height = ceil(size.height)
+//        layoutAttributes.frame = newFrame
+//        return layoutAttributes
+//    }
 }
 
+// MARK: - ConfigurableCollectionViewCell
+extension MessageCollectionViewCell: ConfigurableCollectionViewCell {
+    typealias ModelType = ChatMessage
+    
+    func configure(with model: ChatMessage) {
+        ui.nameLabel.text = model.username
+        ui.messageLabel.text = model.text
+    }
+}
+
+// MARK: - MessageCollectionViewCellUI
 class MessageCollectionViewCellUI {
     lazy var view: UIView = {
         let view = UIView()
@@ -41,6 +67,7 @@ class MessageCollectionViewCellUI {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+//        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -48,6 +75,7 @@ class MessageCollectionViewCellUI {
         let label = UILabel()
         label.textColor = .white
         label.numberOfLines = 0
+//        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 }
