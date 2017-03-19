@@ -6,7 +6,7 @@
 //  Copyright © 2017 ZweiGraf. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Payload {
     let text: String
@@ -44,8 +44,12 @@ class ChatMessage: NSObject, CommunicatorOutput {
 }
 
 class ChatRoom {
-    fileprivate let communicator = Communicator<ChatMessage>(identifier: "marchthirteen")
     
+    fileprivate lazy var communicator: Communicator<ChatMessage>  = {
+        return Communicator(identifier: "marchthirteen", ownPeerID: self.ownName)
+    }()
+    
+    let ownName = UIDevice.current.name
     var messages = [ChatMessage]()
     var messagesChanged: (() -> Void)?
     

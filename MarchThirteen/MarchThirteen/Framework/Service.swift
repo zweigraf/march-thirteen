@@ -18,14 +18,6 @@ internal class Service: NSObject {
     
     typealias PeersChangedCallback = (_ peers: [MCPeerID]) -> Void
     typealias DataReceivedCallback = (_ data: Data, _ peer: MCPeerID) -> Void
-    
-    /// The list of currently connected peers (peers in state MCSessionState.connected).
-    var connectedPeers: [MCPeerID] {
-        return session.connectedPeers
-    }
-
-    /// The peer id of the local user.
-    fileprivate let ownPeer: MCPeerID
 
     /// This callback will be called when the list of connected peers changes.
     var peersChanged: PeersChangedCallback?
@@ -50,6 +42,14 @@ internal class Service: NSObject {
 
     /// The type that is used for advertising and browsing the service.
     fileprivate let type: String
+    
+    /// The list of currently connected peers (peers in state MCSessionState.connected).
+    fileprivate var connectedPeers: [MCPeerID] {
+        return session.connectedPeers
+    }
+    
+    /// The peer id of the local user.
+    fileprivate let ownPeer: MCPeerID
     
     /// Session used for communicating with peers.
     fileprivate lazy var session: MCSession = {

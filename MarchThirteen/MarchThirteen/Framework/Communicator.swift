@@ -10,9 +10,6 @@ import Foundation
 import UIKit
 import MultipeerConnectivity
 
-// FIXME: Can also be injected or created otherwise.
-fileprivate let ownPeerID = MCPeerID(displayName: UIDevice.current.name)
-
 // MARK: - Type Def
 public class Communicator<OutputType: CommunicatorOutput> {
     // MARK: Public Properties
@@ -20,8 +17,12 @@ public class Communicator<OutputType: CommunicatorOutput> {
     var messageSent: MessageSentCallback?
     var peersChanged: PeersChangedCallback?
     
-    init(identifier: String) {
-        service = Service(with: identifier, as: ownPeerID)
+    
+    init(identifier: String, ownPeerID: String) {
+        let peerID = MCPeerID(displayName: ownPeerID)
+        self.ownPeerID = peerID
+        
+        service = Service(with: identifier, as: peerID)
         
         service.dataReceived = didReceive
         service.peersChanged = peersChanged
@@ -39,6 +40,7 @@ public class Communicator<OutputType: CommunicatorOutput> {
     
     // MARK: Private Properties
     fileprivate let service: Service
+    fileprivate let ownPeerID: MCPeerID
 }
 
 // MARK: - ⬆️ Sending ⬆️

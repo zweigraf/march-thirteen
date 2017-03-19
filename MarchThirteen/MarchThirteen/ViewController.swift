@@ -9,30 +9,17 @@
 import UIKit
 import PureLayout
 import Sensitive
-import IGListKit
+import JSQMessagesViewController
 
-class ViewController: UIViewController {
-    // MARK: Boilerplate
-    let ui = ViewControllerUI()
-    
-    lazy var adapter: IGListAdapter = {
-        let adapter = IGListAdapter(updater: IGListAdapterUpdater(), viewController:self, workingRangeSize: 0)
-        adapter.dataSource = self
-        return adapter
-    }()
-    
-    override func loadView() {
-        view = ui.view
-    }
-    
+class ViewController: JSQMessagesViewController {
     let startTime = mach_absolute_time()
+    let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImage(with: UIColor(red: 10/255, green: 180/255, blue: 230/255, alpha: 1.0))
+    let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.lightGray)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        adapter.collectionView = ui.collectionView
-        
+        automaticallyScrollsToMostRecentMessage = true
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(sendRunTime), userInfo: nil, repeats: true)
         
         chatRoom.messagesChanged = messagesChanged
@@ -46,69 +33,51 @@ class ViewController: UIViewController {
     }
 }
 
-// MARK: - Chat Room Callbacks
+// MARK: - JSQMessagesViewController Overrides 
 extension ViewController {
-    func messagesChanged() {
-        DispatchQueue.main.async {
-            self.adapter.performUpdates(animated: true)
+    override func senderId() -> String {
+        return chatRoom.ownName
+    }
+    
+    override func senderDisplayName() -> String {
+        return chatRoom.ownName
+    }
+    
+    override func didPressSend(_ button: UIButton, withMessageText text: String, senderId: String, senderDisplayName: String, date: Date) {
+        chatRoom.send(message: text)
+        finishSendingMessage(animated: true)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return chatRoom.messages.count
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView, messageDataForItemAt indexPath: IndexPath) -> JSQMessageData {
+        let data = chatRoom.messages[indexPath.row]
+        return JSQMessage(senderId: data.username, displayName: data.username, text: data.text)
+    }
+
+    override func collectionView(_ collectionView: JSQMessagesCollectionView, messageBubbleImageDataForItemAt indexPath: IndexPath) -> JSQMessageBubbleImageDataSource? {
+        let data = self.collectionView(collectionView, messageDataForItemAt: indexPath)
+        switch(data.senderId()) {
+        case senderId():
+            return self.outgoingBubble
+        default:
+            return self.incomingBubble
         }
     }
-}
-
-extension ViewController: IGListAdapterDataSource {
-    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        return chatRoom.messages
-    }
     
-    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        return SelfSizingCellSectionController<MessageCollectionViewCell>()
-    }
-    
-    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView, avatarImageDataForItemAt indexPath: IndexPath) -> JSQMessageAvatarImageDataSource? {
         return nil
     }
 }
 
-class ViewControllerUI {
-    lazy var view: UIView = {
-        let newView = UIView()
-        newView.backgroundColor = .green
-        
-        newView.addSubview(self.peersLabel)
-        self.peersLabel.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
-        
-        newView.addSubview(self.collectionView)
-        self.collectionView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
-        self.collectionView.autoPinEdge(.top, to: .bottom, of: self.peersLabel)
-        
-        return newView
-    }()
-    
-    let peersLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.backgroundColor = .lightGray
-        return label
-    }()
-    
-    let collectionView: IGListCollectionView = {
-        let layout = UICollectionViewFlowLayout()
-//        layout.estimatedItemSize = CGSize(width: 100, height: 50)
-        let view = IGListCollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .darkGray
-        return view
-    }()
-}
+// MARK: - Chat Room Callbacks
+extension ViewController {
+    func messagesChanged() {
+        DispatchQueue.main.async {
+            self.finishSendingMessage(animated: true)
 
-extension ChatMessage: IGListDiffable {
-    func diffIdentifier() -> NSObjectProtocol {
-        return self
-    }
-    
-    func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
-        guard let other = object as? ChatMessage else {
-            return false
         }
-        return text == other.text && username == other.username
     }
 }

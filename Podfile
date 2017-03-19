@@ -21,9 +21,9 @@ target 'MarchThirteen' do
   # https://github.com/igormatyushkin014/Sensitive
   pod 'Sensitive', '~> 3.0'
   
-  # A data-driven UICollectionView framework for building fast and flexible lists. https://instagram.github.io/IGListKit/
-  # https://github.com/Instagram/IGListKit
-  pod 'IGListKit', '~> 2.0.0'
+  # An elegant messages UI library for iOS
+  # https://github.com/jessesquires/JSQMessagesViewController
+  pod 'JSQMessagesViewController', :git => 'https://github.com/jessesquires/JSQMessagesViewController.git', :branch => 'develop'
 
   # Modern Swift API for NSUserDefaults
   # https://github.com/radex/SwiftyUserDefaults
