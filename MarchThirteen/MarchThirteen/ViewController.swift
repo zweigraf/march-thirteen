@@ -21,6 +21,8 @@ class ViewController: JSQMessagesViewController {
         
         automaticallyScrollsToMostRecentMessage = true
         chatRoom.messagesChanged = messagesChanged
+        chatRoom.typingStatusChanged = typingStatusChanged
+        chatRoom.usersChanged = usersChanged
     }
     
     // MARK: Model
@@ -42,13 +44,26 @@ extension ViewController {
         finishSendingMessage(animated: true)
     }
     
+    override func textViewDidChange(_ textView: UITextView) {
+        super.textViewDidChange(textView)
+        // Send start typing message when the textfield has one character
+        guard textView.text?.characters.count == 1 else { return }
+        chatRoom.sendStartTyping()
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return chatRoom.messages.count
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageDataForItemAt indexPath: IndexPath) -> JSQMessageData {
         let data = chatRoom.messages[indexPath.row]
-        return JSQMessage(senderId: data.username, displayName: data.username, text: data.text)
+        let text: String
+        if case let .message(messageText) = data.event {
+            text = messageText
+        } else {
+            text = ""
+        }
+        return JSQMessage(senderId: data.username, displayName: data.username, text: text)
     }
 
     override func collectionView(_ collectionView: JSQMessagesCollectionView, messageBubbleImageDataForItemAt indexPath: IndexPath) -> JSQMessageBubbleImageDataSource? {
@@ -71,6 +86,18 @@ extension ViewController {
     func messagesChanged() {
         DispatchQueue.main.async {
             self.finishReceivingMessage(animated: true)
+        }
+    }
+    
+    func typingStatusChanged(shouldShowTypingIndicator: Bool) {
+        DispatchQueue.main.async {
+            self.showTypingIndicator = shouldShowTypingIndicator
+        }
+    }
+    
+    func usersChanged(users: [String]) {
+        DispatchQueue.main.async {
+            self.title = users.joined(separator: ", ")
         }
     }
 }

@@ -17,7 +17,6 @@ public class Communicator<OutputType: CommunicatorOutput> {
     var messageSent: MessageSentCallback?
     var peersChanged: PeersChangedCallback?
     
-    
     init(identifier: String, ownPeerID: String) {
         let peerID = MCPeerID(displayName: ownPeerID)
         self.ownPeerID = peerID

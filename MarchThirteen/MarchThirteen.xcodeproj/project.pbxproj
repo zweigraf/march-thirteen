@@ -90,7 +90,7 @@
 		A517CD7F1E77555600F67CC0 /* MarchThirteen */ = {
 			isa = PBXGroup;
 			children = (
-				A5BD32861E7D9DB50071E63F /* Framework */,
+				A5BD32861E7D9DB50071E63F /* WalkieTalkie */,
 				A517CD801E77555600F67CC0 /* AppDelegate.swift */,
 				A517CD821E77555600F67CC0 /* ViewController.swift */,
 				A517CD871E77555600F67CC0 /* Assets.xcassets */,
@@ -101,7 +101,7 @@
 			path = MarchThirteen;
 			sourceTree = "<group>";
 		};
-		A5BD32861E7D9DB50071E63F /* Framework */ = {
+		A5BD32861E7D9DB50071E63F /* WalkieTalkie */ = {
 			isa = PBXGroup;
 			children = (
 				A5BD32871E7D9DB50071E63F /* Communicator.swift */,
@@ -111,7 +111,7 @@
 				A5BD328F1E7D9FB20071E63F /* CommunicatorMessage.swift */,
 				A5BD32911E7DB6EC0071E63F /* CommunicatorOutput.swift */,
 			);
-			path = Framework;
+			path = WalkieTalkie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
