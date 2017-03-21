@@ -16,9 +16,9 @@ fileprivate enum DictionaryKeys: String {
 /// Represents a message.
 public struct CommunicatorMessage<PayloadType: CommunicatorPayload> {
     /// The payload of the message as sent by the other party.
-    let payload: PayloadType
+    public let payload: PayloadType
     /// The peer that sent this message.
-    let peer: Peer
+    public let peer: Peer
     
     // TODO: add timestamps & figure out way to synchronise devices times
 }

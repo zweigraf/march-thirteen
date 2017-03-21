@@ -77,7 +77,11 @@ extension ViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView, avatarImageDataForItemAt indexPath: IndexPath) -> JSQMessageAvatarImageDataSource? {
-        return nil
+        let data = chatRoom.messages[indexPath.row]
+        guard let image = UIImage.initialsImage(for: data.username) else {
+            return nil
+        }
+        return JSQMessagesAvatarImage(avatarImage: image, highlightedImage: nil, placeholderImage: image)
     }
 }
 

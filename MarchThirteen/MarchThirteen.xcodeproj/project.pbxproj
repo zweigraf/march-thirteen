@@ -11,6 +11,7 @@
 		A517CD831E77555600F67CC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517CD821E77555600F67CC0 /* ViewController.swift */; };
 		A517CD881E77555600F67CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A517CD871E77555600F67CC0 /* Assets.xcassets */; };
 		A517CD8B1E77555600F67CC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A517CD891E77555600F67CC0 /* LaunchScreen.storyboard */; };
+		A561081E1E80A84D00FB50C1 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A561081D1E80A84D00FB50C1 /* UIImageExtension.swift */; };
 		A5BD327E1E7D9B310071E63F /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD327D1E7D9B310071E63F /* ChatRoom.swift */; };
 		A5BD32891E7D9DB50071E63F /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD32871E7D9DB50071E63F /* Communicator.swift */; };
 		A5BD328A1E7D9DB50071E63F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD32881E7D9DB50071E63F /* Service.swift */; };
@@ -31,6 +32,7 @@
 		A517CD871E77555600F67CC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A517CD8A1E77555600F67CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A517CD8C1E77555600F67CC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A561081D1E80A84D00FB50C1 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		A5BD327D1E7D9B310071E63F /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		A5BD32871E7D9DB50071E63F /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		A5BD32881E7D9DB50071E63F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		A517CD7F1E77555600F67CC0 /* MarchThirteen */ = {
 			isa = PBXGroup;
 			children = (
+				A561081C1E80A81F00FB50C1 /* Utils */,
 				A5BD32861E7D9DB50071E63F /* WalkieTalkie */,
 				A517CD801E77555600F67CC0 /* AppDelegate.swift */,
 				A517CD821E77555600F67CC0 /* ViewController.swift */,
@@ -99,6 +102,14 @@
 				A5BD327D1E7D9B310071E63F /* ChatRoom.swift */,
 			);
 			path = MarchThirteen;
+			sourceTree = "<group>";
+		};
+		A561081C1E80A81F00FB50C1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A561081D1E80A84D00FB50C1 /* UIImageExtension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A5BD32861E7D9DB50071E63F /* WalkieTalkie */ = {
@@ -239,6 +250,7 @@
 				A5BD328C1E7D9E490071E63F /* CommunicatorPayload.swift in Sources */,
 				A517CD831E77555600F67CC0 /* ViewController.swift in Sources */,
 				A5BD32901E7D9FB20071E63F /* CommunicatorMessage.swift in Sources */,
+				A561081E1E80A84D00FB50C1 /* UIImageExtension.swift in Sources */,
 				A517CD811E77555600F67CC0 /* AppDelegate.swift in Sources */,
 				A5BD328A1E7D9DB50071E63F /* Service.swift in Sources */,
 				A5BD32891E7D9DB50071E63F /* Communicator.swift in Sources */,
