@@ -63,7 +63,7 @@ class ChatEvent: NSObject, CommunicatorOutput {
 }
 
 class ChatRoom {
-    fileprivate lazy var communicator: Communicator<ChatEvent>  = {
+    fileprivate lazy var communicator: Communicator<ChatEvent> = {
         return Communicator(identifier: "marchthirteen", ownPeerID: self.ownName)
     }()
     
